@@ -19,8 +19,9 @@ namespace ISC_BT2.Controllers
             _context = context;
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpGet]
+        [Authorize(Policy = "UserAccess")]
         public async Task<IActionResult> GetInterns()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

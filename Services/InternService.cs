@@ -21,7 +21,7 @@ namespace ISC_BT2.Services
                 .FirstOrDefaultAsync();
 
             if (string.IsNullOrEmpty(allowedColumns))
-                return new List<object>();
+                return new List<object>(); // Nếu không có quyền thì trả về rỗng
 
             var columnList = allowedColumns.Split(',');
 
@@ -30,9 +30,12 @@ namespace ISC_BT2.Services
                 {
                     InternName = columnList.Contains("InternName") ? intern.InternName : null,
                     InternMail = columnList.Contains("InternMail") ? intern.InternMail : null,
-                    Major = columnList.Contains("Major") ? intern.Major : null
+                    Major = columnList.Contains("Major") ? intern.Major : null,
+                    University = columnList.Contains("University") ? intern.University : null,
+                    JobFields = columnList.Contains("JobFields") ? intern.JobFields : null
                 })
                 .ToListAsync<object>();
         }
+
     }
 }
