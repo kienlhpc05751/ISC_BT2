@@ -1,0 +1,6 @@
+@ISC_BT2_HostAddress = http://localhost:5204
+
+GET {{ISC_BT2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
